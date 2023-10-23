@@ -65,9 +65,15 @@ code {
 .task {
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 90%;
   gap: 15px;
 }
 .icon {
   cursor: pointer;
+}
+.delete-icon{
+  color: red;
+  cursor: pointer;
+  /* justify-self: flex-end; */
+  margin-left: auto;
 }

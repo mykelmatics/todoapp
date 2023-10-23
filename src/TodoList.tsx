@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleTodo } from './stores/action';
+import { toggleTodo , deleteTodo} from './stores/action';
 import {MdOutlineRadioButtonChecked, MdOutlineRadioButtonUnchecked} from 'react-icons/md'
+import { RiDeleteBin4Line } from 'react-icons/ri'
 // import { RootState } from './stores';
 
 const TodoList: React.FC = () => {
@@ -10,13 +11,14 @@ const TodoList: React.FC = () => {
   const total = todos.length
   const completedTask = todos.filter((todo: any)=>  todo.completed === true)
   
-
+ console.log(todos, "heee");
+ 
 
   return (
     <>
         <div className="list">
             {todos.map((todo: any) => (
-                <div className='task'>
+            <div className='task'>
                 {todo.completed &&  <div className='icon' onClick={() => dispatch(toggleTodo(todo.id))}>
                 <MdOutlineRadioButtonChecked/> 
                 </div> 
@@ -33,11 +35,14 @@ const TodoList: React.FC = () => {
                 >
                 {todo.text}
                 </div>
+                <div className='delete-icon' onClick={() => dispatch(deleteTodo(todo.id))}>
+                    <RiDeleteBin4Line/>
                 </div>
+            </div>
 
             ))}
        </div>
-       <div>{completedTask.length} <span>of</span> {total} <span>completed task</span></div>
+       <div>{completedTask.length} <span>of</span> {total} <span>task completed</span></div>
     </>
   );
 };

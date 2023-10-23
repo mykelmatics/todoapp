@@ -68,3 +68,6 @@ code {
   width: 100%;
   gap: 15px;
 }
+.icon {
+  cursor: pointer;
+}

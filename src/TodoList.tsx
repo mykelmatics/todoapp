@@ -17,11 +17,11 @@ const TodoList: React.FC = () => {
         <div className="list">
             {todos.map((todo: any) => (
                 <div className='task'>
-                {todo.completed &&  <div>
+                {todo.completed &&  <div className='icon' onClick={() => dispatch(toggleTodo(todo.id))}>
                 <MdOutlineRadioButtonChecked/> 
                 </div> 
                 }
-               {!todo.completed &&  <div>
+               {!todo.completed &&  <div className='icon' onClick={() => dispatch(toggleTodo(todo.id))}>
                 <MdOutlineRadioButtonUnchecked/> 
                 </div> 
                 }
